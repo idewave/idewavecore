@@ -1,0 +1,38 @@
+servers:
+  mock_tcp_server:
+    connection:
+      host: 127.0.0.1
+      port: 9891
+      # possible values: tcp, websocket
+      connection_type: tcp
+    proxy:
+      host: ~
+      port: ~
+      # possible values: tcp, websocket
+      connection_type: tcp
+    options:
+      server_name: Mock TCP Server
+      is_debug: false
+    middlewares: !pipe
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware
+
+  mock_websocket_server:
+    connection:
+      host: 127.0.0.1
+      port: 9891
+      # possible values: tcp, websocket
+      connection_type: websocket
+    proxy:
+      host: ~
+      port: ~
+      # possible values: tcp, websocket
+      connection_type: tcp
+    options:
+      server_name: Mock WS Server
+      is_debug: false
+    middlewares: !pipe
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware

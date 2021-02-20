@@ -1,0 +1,15 @@
+middlewares:
+  only_fn:
+    - !fn native.test.mock_middleware
+    - !fn native.test.mock_middleware
+  only_infinite_loop:
+    - !infinite_loop
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware
+  only_router:
+    TEST_ROUTE_INLINE: !fn native.test.mock_middleware
+    TEST_ROUTE_LIST:
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware
+      - !fn native.test.mock_middleware

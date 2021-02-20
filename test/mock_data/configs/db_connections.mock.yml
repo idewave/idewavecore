@@ -1,0 +1,30 @@
+db_connections:
+  sqlite:
+    host: ~
+    username: ~
+    password: ~
+    port: ~
+    dialect: sqlite
+    driver: ~
+    db_name: ~
+    charset: ~
+
+  mysql_pymysql:
+    host: 127.0.0.1
+    username: root
+    password: ~
+    port: 3306
+    dialect: mysql
+    driver: pymysql
+    db_name: ~
+    charset: ~
+
+  postgresql_pygresql:
+    host: 127.0.0.1
+    username: root
+    password: ~
+    port: 5432
+    dialect: postgresql
+    driver: pygresql
+    db_name: ~
+    charset: ~

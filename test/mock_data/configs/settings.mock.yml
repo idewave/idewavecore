@@ -1,0 +1,48 @@
+settings:
+  servers:
+    mock_tcp_server:
+      connection:
+        host: 127.0.0.1
+        port: 9001
+        connection_type: tcp
+      options:
+        server_name: Mock TCP Server
+        is_debug: false
+      middlewares: !pipe
+        - !fn native.network.read
+        - !fn native.network.write
+      proxy:
+        host: 127.0.0.1
+        port: 9323
+        connection_type: tcp
+      # optional
+      db_connection: test_connection
+
+    mock_websocket_server:
+      connection:
+        host: 127.0.0.1
+        port: 9002
+        connection_type: websocket
+      options:
+        server_name: Mock Websocket Server
+        is_debug: false
+      middlewares: !pipe
+        - !fn native.network.read
+        - !fn native.network.write
+      proxy:
+        host: 127.0.0.1
+        port: 9325
+        connection_type: websocket
+      # optional
+      db_connection: test_connection
+
+  db_connections:
+    test_connection:
+      host: ~
+      username: ~
+      password: ~
+      port: ~
+      dialect: sqlite
+      driver: ~
+      db_name: ~
+      charset: ~

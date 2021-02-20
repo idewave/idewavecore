@@ -1,0 +1,55 @@
+settings:
+  servers:
+    sample_server:
+      connection:
+        host: 1.2.3.4
+        port: 1234
+        # possible values: tcp, websocket
+        connection_type: tcp
+      # optional
+      proxy:
+        host: ~
+        port: ~
+        # possible values: tcp, websocket
+        connection_type: tcp
+      options:
+        server_name: Sample Server
+        is_debug: false
+      middlewares: !pipe
+        - !fn native.test.mock_middleware
+        - !fn native.test.mock_middleware
+        - !infinite_loop
+            - !fn native.test.mock_middleware
+            - !fn native.test.mock_middleware
+            - !fn native.test.mock_middleware
+            - !router
+                ROUTE_1: !fn native.test.mock_middleware
+                ROUTE_2: !fn native.test.mock_middleware
+                ROUTE_3:
+                  - !fn native.test.mock_middleware
+                  - !fn native.test.mock_middleware
+                  - !fn native.test.mock_middleware
+      # optional, use keys of "db_connections" below
+      db_connection: sample_db_connection
+
+  db_connections:
+    sample_db_connection:
+      # can be omitted for sqlite
+      host: 127.0.0.1
+      # can be omitted for sqlite
+      username: some_username
+      # can be omitted for sqlite
+      password: some_password
+      # default mysql 3306, postgresql 5432, sqlite don't need port
+      port: 3306
+      # currently allowed: mysql, postgresql, sqlite
+      dialect: mysql
+      # supported drivers:
+      # mysql: mysqlconnector, pymysql, pyodbc
+      # postgresql: psycopg2, pg8000, pygresql
+      driver: pymysql
+      # to use with sqlite this should be absolute db path
+      # can be empty to keep db in memory (sqlite only)
+      db_name: ~
+      # optional
+      charset: ~

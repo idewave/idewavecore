@@ -1,0 +1,10 @@
+proxies:
+  tcp_proxy:
+    host: 127.0.0.1
+    port: 9898
+    connection_type: tcp
+
+  websocket_proxy:
+    host: 127.0.0.1
+    port: 9899
+    connection_type: websocket
