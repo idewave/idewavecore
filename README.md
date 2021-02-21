@@ -121,4 +121,8 @@ Some approaches for my framework I took from my another project with similar nam
 
 ## Documentation
 
-For now only README, source code and tests. I will update this section when project's wiki will be ready.
+For now only README, source code and tests. Also you can read [Project's wiki](https://github.com/idewave/idewavecore/wiki).
+
+## You want participate
+
+You can add PR. To communicate join https://discord.gg/y6746sm
