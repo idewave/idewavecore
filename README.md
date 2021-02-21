@@ -2,10 +2,10 @@
 
 ## Installation
 
-You need Python 3.6. To install needed dependencies run next command:
+You need Python 3.6. To install you will need to run next command:
 
 ```commandline
-pip3 install -r requirements.txt
+pip3 install idewavecore==0.0.1
 ```
 
 ### Database
