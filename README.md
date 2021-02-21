@@ -8,6 +8,12 @@ You need Python 3.6. To install needed dependencies run next command:
 pip3 install -r requirements.txt
 ```
 
+You can also install from pypi:
+
+```commandline
+pip install idewavecore==0.0.1
+```
+
 ### Database
 
 Framework contains DB connection builder, that support mysql, postgresql or sqlite. You possible will need to install additional db drivers from dict below:
